@@ -1,0 +1,212 @@
+<div style="width: 100%;">
+  <div
+    style="
+      width: 40%;
+      height: 700px;
+      float: left;
+      transform: translate(15%, 20%);
+    "
+  >
+    <img
+      src="../../assets/img/sesame.png"
+      width="70%"
+      height="50%"
+      style="border-radius: 50%;"
+    />
+  </div>
+  <div
+    style="
+      width: 30%;
+      margin-left: 54%;
+      height: 700px;
+      margin-right: 6%;
+      text-align: center;
+    "
+  >
+    <h1 style="color: rgb(94, 148, 230);">Welcome To Recruitment Forum</h1>
+    <form style="margin-top: 100px;">
+      <input
+        type="text"
+        id="fname"
+        name="fname"
+        #email1
+        placeholder="Usename"
+      />
+      <br />
+      <br />
+      <input
+        type="password"
+        id="lname"
+        name="lname"
+        placeholder="Password"
+        #password1
+      />
+      <button
+        type="button"
+        (click)="login(email1.value,password1.value)"
+        class="btn btn-primary"
+        style="color: white; border-radius: 30px;"
+      >
+        Login
+      </button>
+    </form>
+    <h3>Or</h3>
+    <p>
+      Dont You Have An Account ?
+      <a (click)="sign()" style="color: orange; cursor: pointer;">Sign Up</a>
+    </p>
+    <div id="id01" class="modal">
+      <form
+        style="width: 50%; margin-top: 0px;"
+        class="modal-content animate"
+        action="/action_page.php"
+        method="post"
+      >
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('id01').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+        </div>
+        <div class="container">
+          <form>
+            <div class="form-row">
+              <img
+                [src]="imgSrc"
+                class="avatar"
+                width="225x"
+                height="230px"
+                (click)="uplo.click()"
+              />
+            </div>
+
+            <label>Image to Upload</label>
+            <input
+              accept="image/*"
+              #uplo
+              type="file"
+              class="form-control label-file"
+              formControleName="imagelink"
+              (change)="show($event)"
+            />
+
+            <div class="card">
+              <div class="card-body">
+                <div class="form-row">
+                  <input
+                    type="text"
+                    #Cname
+                    class="form-control"
+                    placeholder="Company Name"
+                  />
+                  <div class="text-danger" *ngIf="isSubmitted && !Cname.value">
+                    Companyname required
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    placeholder="Email"
+                    type="text"
+                    #email
+                    class="form-control"
+                    id="inputEmail4"
+                  />
+                  <div class="text-danger" *ngIf="isSubmitted && !email.value">
+                    Email required
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    placeholder="Password"
+                    type="password"
+                    #password
+                    class="form-control"
+                    id="inputPassword4"
+                  />
+                  <div
+                    class="text-danger"
+                    *ngIf="isSubmitted && !password.value"
+                  >
+                    password required
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    placeholder="Address"
+                    #adresse
+                    type="text"
+                    class="form-control"
+                    id="inputAddress"
+                    placeholder="1234 Main St"
+                  />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input
+                      placeholder="City"
+                      type="text"
+                      #city
+                      class="form-control"
+                      id="inputCity"
+                    />
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <input
+                      placeholder="Zip"
+                      type="text"
+                      #zip
+                      class="form-control"
+                      id="inputZip"
+                    />
+                  </div>
+                  <div class="form-group col-md-12">
+                    <input
+                      placeholder="Phone Number"
+                      type="number"
+                      class="form-control"
+                      #number
+                      id="inputZip"
+                    />
+                  </div>
+                  <textarea
+                    placeholder="Description"
+                    class="form-control"
+                    #disc
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                  ></textarea>
+                  <textarea
+                    style="margin-top: 20px;"
+                    placeholder="Requirement"
+                    #req
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div *ngIf="load">
+                  <div class="spinner-border text-danger" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="color: white; border-radius: 30px;"
+                  (click)="signup(Cname.value,email.value,adresse.value,password.value,city.value,zip.value,number.value , disc.value , req.value)"
+                >
+                  Sign in
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

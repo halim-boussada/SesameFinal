@@ -1,0 +1,125 @@
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <form
+      class="form-group"
+      (submit)="onSubmit(name.value,lastname.value, email.value, password.value, field.value, tel.value)"
+    >
+      <div class="form-row">Sign up</div>
+      <div class="text-center">
+        <img
+          [src]="imgSrc"
+          width="350px"
+          height="250px"
+          (click)="uplo.click()"
+        />
+      </div>
+
+      <label>Image to Upload</label>
+      <input
+        accept="image/*"
+        #uplo
+        type="file"
+        class="form-control"
+        formControleName="imagelink"
+        (change)="show($event)"
+      />
+      <div class="form-row" style="margin-top: 03%;">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            #name
+            formControleName="name"
+            placeholder="First name"
+          />
+          <div class="text-danger" *ngIf="isSubmitted && !name.value">
+            name required
+          </div>
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            formControleName="lastname"
+            placeholder="Last name"
+            #lastname
+          />
+          <div class="text-danger" *ngIf="isSubmitted && !lastname">
+            last name is required
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="inputEmail4">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControleName="email"
+          id="inputEmail4"
+          #email
+        />
+        <div class="text-danger" *ngIf="isSubmitted && !email.value">
+          Address Email is required
+        </div>
+
+        <div class="form-row">
+          <label for="inputPassword4">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControleName="password"
+            id="inputPassword4"
+            #password
+          />
+          <div class="text-danger" *ngIf="isSubmitted && !password.value">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputState">Field</label>
+          <select
+            id="inputState"
+            class="form-control"
+            formControleName="classe"
+            #field
+          >
+            <option>ING 4</option>
+            <option>ING 5</option>
+            <option>Buissness 3 </option>
+          </select>
+          <div class="text-danger" *ngIf="isSubmitted && !field.value">
+            Field is required
+          </div>
+        </div>
+        <div class="col" style="margin-left: 03%;">
+          <label for="exampleFormControlFile1">Upload resume</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="exampleFormControlFile1"
+          />
+          <div class="text-danger">*</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <input
+          formControleName="tel"
+          type="number"
+          class="form-control"
+          placeholder="Numero de tel"
+          #tel
+        />
+        <div class="text-danger" *ngIf="isSubmitted && !tel.value">
+          Phone number required
+        </div>
+      </div>
+      <div class="form-group" style="margin-top: 02%;">
+        <button type="submit" class="btn btn-primary">
+          Sign UP
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,254 @@
+<!-- <p>student-login works!</p>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input
+      #email
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input
+      #password
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+    />
+  </div>
+  <button
+    (click)="login(email.value,password.value)"
+    type="submit"
+    class="btn btn-primary"
+  >
+    Submit
+  </button>
+</form> -->
+
+<div style="width: 100%;">
+  <div
+    style="
+      width: 40%;
+      height: 700px;
+      float: left;
+      transform: translate(15%, 20%);
+    "
+  >
+    <img src="../../assets/img/syrine.png" width="80%" height="50%" />
+  </div>
+  <div
+    style="
+      width: 30%;
+      margin-left: 54%;
+      height: 700px;
+      margin-right: 6%;
+      text-align: center;
+    "
+  >
+    <h1 style="color: rgb(94, 148, 230);">Welcome To Recruitment Forum</h1>
+    <form style="margin-top: 100px;">
+      <input
+        type="text"
+        id="fname"
+        name="fname"
+        #email1
+        placeholder="Usename"
+      />
+      <br />
+      <br />
+      <input
+        type="password"
+        id="lname"
+        name="lname"
+        placeholder="Password"
+        #password1
+      />
+      <button
+        type="button"
+        (click)="login(email1.value,password1.value)"
+        class="btn btn-primary"
+        style="color: white; border-radius: 30px;"
+      >
+        Login
+      </button>
+    </form>
+    <h3>Or</h3>
+    <p>
+      Dont You Have An Account ?
+      <a (click)="sign()" style="color: orange; cursor: pointer;">Sign Up</a>
+    </p>
+    <div id="id01" class="modal">
+      <form
+        style="width: 50%; margin-top: 0px; color: grey;"
+        class="modal-content animate"
+        action="/action_page.php"
+        method="post"
+      >
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('id01').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+        </div>
+        <div class="container">
+          <div>
+            <div>
+              <form
+                class="form-group"
+                (submit)="onSubmit(name.value,lastname.value, email.value, password.value, field.value, tel.value)"
+              >
+                <div class="text-center">
+                  <img
+                    [src]="imgSrc"
+                    alt="Avatar"
+                    class="avatar"
+                    (click)="uplo.click()"
+                  />
+                </div>
+
+                <label>Image to Upload</label>
+                <input
+                  accept="image/*"
+                  #uplo
+                  type="file"
+                  class="form-control label-file"
+                  formControleName="imagelink"
+                  (change)="show($event)"
+                />
+                <div class="form-row" style="margin-top: 03%;">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      #name
+                      formControleName="name"
+                      placeholder="First name"
+                    />
+                    <div class="text-danger" *ngIf="isSubmitted && !name.value">
+                      name required
+                    </div>
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControleName="lastname"
+                      placeholder="Last name"
+                      #lastname
+                    />
+                    <div class="text-danger" *ngIf="isSubmitted && !lastname">
+                      last name is required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <input
+                    placeholder="Email"
+                    type="text"
+                    class="form-control"
+                    formControleName="email"
+                    #email
+                  />
+                  <div class="text-danger" *ngIf="isSubmitted && !email.value">
+                    Address Email is required
+                  </div>
+
+                  <div class="form-row">
+                    <input
+                      placeholder="Password"
+                      type="password"
+                      class="form-control"
+                      formControleName="password"
+                      id="inputPassword4"
+                      #password
+                    />
+                    <div
+                      class="text-danger"
+                      *ngIf="isSubmitted && !password.value"
+                    >
+                      Password is required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="inputState">Field</label>
+                    <select
+                      id="inputState"
+                      class="form-control"
+                      formControleName="classe"
+                      #field
+                    >
+                      <option>ING 4</option>
+                      <option>ING 5</option>
+                      <option>Buissness 3 </option>
+                    </select>
+                    <div
+                      class="text-danger"
+                      *ngIf="isSubmitted && !field.value"
+                    >
+                      Field is required
+                    </div>
+                  </div>
+                  <div class="col" style="margin-left: 03%;">
+                    <label for="exampleFormControlFile1">Upload resume</label>
+                    <input
+                      type="file"
+                      #file
+                      class="form-control-file label-file"
+                      id="exampleFormControlFile1"
+                      (change)="upload($event)"
+                    />
+                    <div class="text-danger">*</div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <input
+                    formControleName="tel"
+                    type="number"
+                    class="form-control"
+                    placeholder="Numero de tel"
+                    #tel
+                  />
+                  <div class="text-danger" *ngIf="isSubmitted && !tel.value">
+                    Phone number required
+                  </div>
+                </div>
+                <div class="form-group" style="margin-top: 02%;">
+                  <div *ngIf="load">
+                    <div class="spinner-border text-danger" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="color: white; border-radius: 30px;"
+                  >
+                    SignUP
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      var modal = document.getElementById("id01");
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </div>
+</div>

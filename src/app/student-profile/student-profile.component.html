@@ -1,0 +1,169 @@
+<body>
+  <nav
+    class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar"
+    style="box-shadow: 0px 0px; background: rgba(255, 255, 255, 0);"
+  >
+    <div class="container">
+      <a
+        class="navbar-brand logo"
+        href="#"
+        style="
+          background: url('assets/img/Logos-Sesame-13.png') center / contain
+            no-repeat;
+        "
+        >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp;</a
+      ><button
+        data-toggle="collapse"
+        class="navbar-toggler float-right"
+        data-target="#navcol-1"
+      >
+        <span class="sr-only">Toggle navigation</span
+        ><span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="navcol-1"
+        style="max-width: 662.375px; margin-left: 0px; padding-left: 0px;"
+      >
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item" style="margin-left: 31px;">
+            <a class="nav-link" (click)="home()">Home</a>
+          </li>
+          <li class="nav-item" style="margin-left: 31px;">
+            <a class="nav-link active" (click)="MyProfile()">Profile</a>
+          </li>
+          <li class="nav-item" style="margin-left: 31px;">
+            <a class="nav-link" (click)="viewbookings()">MyBookings</a>
+          </li>
+          <li class="nav-item" style="margin-left: 31px;">
+            <a class="nav-link" (click)="booknow()">BookNow</a>
+          </li>
+          <li class="nav-item" style="margin-left: 31px; margin-top: -10px;">
+            <div class="nav navbar-nav" id="navbar-list-1">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id=""
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="{{this.image}}"
+                      width="40"
+                      height="40"
+                      class="rounded-circle"
+                    />
+                  </a>
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <a class="dropdown-item" href="">Log Out</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div style="padding-top: 110px;">
+    <section class="wrapper">
+      <div class="container-fostrap">
+        <div>
+          <h2 class="text-info">
+            Welcome
+          </h2>
+          <p
+            class="text-xs-center"
+            style="
+              text-align: center;
+              max-width: 420px;
+              margin: auto;
+              opacity: 0.7;
+            "
+          >
+            This is your profile page
+          </p>
+        </div>
+        <div class="content" style="margin-top: 20px;">
+          <div class="profile__wrap">
+            <img src="{{this.image}}" alt="" class="profile__photo" />
+
+            <div class="profile__info">
+              <h1>Hello! I'm {{this.name}} {{this.lastname}}</h1>
+              <p class="profile__intro">
+                <i class="fas fa-envelope"> </i> <a> {{email}}</a>
+              </p>
+              <p class="profile__intro">
+                <i class="fas fa-phone-square-alt"></i> <a> {{phoneNumber}}</a>
+              </p>
+              <p class="profile__intro">
+                <i class="fas fa-university"></i> <a> {{class}}</a>
+              </p>
+
+              <div class="profile__contact">
+                <a href="{{this.userInfo[0].resume}}" class="contact"
+                  >Download your Cv</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer id="footerpad" style="margin-top: 13px; padding-bottom: 0px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-8 mx-auto" style="margin-right: 193px;">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/sesametunisie"
+                ><span class="fa-stack fa-lg"
+                  ><i class="fa fa-circle fa-stack-2x"></i
+                  ><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span
+              ></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/SesameTunisie"
+                ><span class="fa-stack fa-lg"
+                  ><i class="fa fa-circle fa-stack-2x"></i
+                  ><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span
+              ></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/universitesesame"
+                ><span class="fa-stack fa-lg"
+                  ><i class="fa fa-circle fa-stack-2x"></i
+                  ><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span
+              ></a>
+            </li>
+          </ul>
+          <p class="copyright text-muted text-center">
+            Copyright&copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            |
+            <a href="https://universitesesame.com/" target="_blank">
+              SESAME UNIVERSITY</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+  <script src="assets/js/smoothproducts.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/Button-Modal-popup-team-member.js"></script>
+</body>

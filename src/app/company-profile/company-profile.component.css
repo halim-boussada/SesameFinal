@@ -1,0 +1,11 @@
+#dis a {
+  pointer-events: none;
+  cursor: pointer;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 1%;
+}

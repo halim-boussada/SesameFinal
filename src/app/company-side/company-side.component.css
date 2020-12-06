@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  padding-left: 0px;
+  list-style: none;
+  border-radius: 0.25rem;
+  justify-content: center;
+}
+table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 1em;
+  background: #f6f6f6;
+  border-bottom: 2px solid white;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 1%;
+}
