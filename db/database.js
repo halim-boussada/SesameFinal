@@ -154,6 +154,13 @@ let companyData = (arr, callback) => {
     err ? callback(err, null) : callback(null, data);
   });
 };
+
+let studentData = (arr, callback) => {
+  let sql = `SELECT * from students WHERE email=?; `;
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
 let getCompanybyName = (arr, callback) => {
   let sql = `SELECT * from companies WHERE name=?; `;
   connection.query(sql, arr, (err, data) => {
@@ -175,6 +182,24 @@ let collectrooms = (callback) => {
 };
 let collectroomsFc = (arr, callback) => {
   var sql = `SELECT * FROM rooms WHERE companyBooked=?;`;
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+let alpha = (arr, callback) => {
+  var sql = `DELETE FROM students;`;
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+let alpha2 = (arr, callback) => {
+  var sql = `DELETE FROM companies;`;
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
+let alpha3 = (arr, callback) => {
+  var sql = `DELETE FROM bookingTimes;`;
   connection.query(sql, arr, (err, data) => {
     err ? callback(err, null) : callback(null, data);
   });
@@ -208,6 +233,12 @@ let loginStudent = (arr, callback) => {
   });
 };
 
+let loginAdmin = (arr, callback) => {
+  let sql = `SELECT * from admin WHERE user=? and password=?; `;
+  connection.query(sql, arr, (err, data) => {
+    err ? callback(err, null) : callback(null, data);
+  });
+};
 let loginCompany = (arr, callback) => {
   let sql = `SELECT * from companies WHERE email=? and password=?; `;
   connection.query(sql, arr, (err, data) => {
@@ -222,6 +253,10 @@ module.exports = {
   loginStudent,
   signupStudent,
   addTime,
+  alpha,
+  alpha2,
+  studentData,
+  alpha3,
   collectTimes,
   collectbooking,
   bookForcompany,
@@ -245,4 +280,5 @@ module.exports = {
   selctFromSbooked,
   collectroomsFc,
   collectroomsbyid,
+  loginAdmin,
 };

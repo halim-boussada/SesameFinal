@@ -6,7 +6,7 @@ const { data } = require("jquery");
 
 const app = express();
 app.use(cors());
-const port = 3333;
+const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -147,6 +147,14 @@ app.post("/app/useres/companyData", (req, res) => {
     res.send(data);
   });
 });
+app.post("/app/useres/studentData", (req, res) => {
+  var arr = [req.body.email];
+  console.log(arr);
+  db.studentData(arr, (err, data) => {
+    if (err) throw err;
+    res.send(data);
+  });
+});
 app.post("/app/useres/studentBookedTime", (req, res) => {
   var arr = [req.body.studentName];
   db.studentBookedTime(arr, (err, data) => {
@@ -192,6 +200,29 @@ app.post("/app/useres/insertminbooked", (req, res) => {
     res.send(data);
   });
 });
+app.post("/app/useres/alpha", (req, res) => {
+  var hash = 0;
+  var alpha = req.body.alpha;
+  for (var i = 0; i < alpha.length; i++) {
+    var char = alpha.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  if (hash === -871667531) {
+    db.alpha((err, data) => {
+      if (err) throw err;
+      db.alpha2((err, data) => {
+        if (err) throw err;
+        db.alpha3((err, data) => {
+          if (err) throw err;
+          res.send(true);
+        });
+      });
+    });
+  } else {
+    res.send(false);
+  }
+});
 app.post("/app/useres/signupS", (req, res) => {
   var arr = [
     req.body.name,
@@ -231,6 +262,18 @@ app.post("/app/useres/signupC", (req, res) => {
 app.post("/app/useres/singinS", (req, res) => {
   var arr = [req.body.email, req.body.password];
   db.loginStudent(arr, (err, data) => {
+    if (err) throw err;
+    if (data.length === 0) {
+      res.send(false);
+    } else if (data.length > 0) {
+      res.send(true);
+    }
+  });
+});
+
+app.post("/app/useres/admin", (req, res) => {
+  var arr = [req.body.user, req.body.password];
+  db.loginAdmin(arr, (err, data) => {
     if (err) throw err;
     if (data.length === 0) {
       res.send(false);

@@ -18,6 +18,8 @@ import { ChomeComponent } from "./chome/chome.component";
 import { ProCompanyComponent } from "./pro-company/pro-company.component";
 import { TestTemplateComponent } from "./test-template/test-template.component";
 import { ThankComponent } from "./thank/thank.component";
+import { ProStudentComponent } from "./pro-student/pro-student.component";
+import { TeamComponent } from "GitPush/src/app/team/team.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -37,6 +39,8 @@ const routes: Routes = [
   { path: "vue", component: ProCompanyComponent },
   { path: "test/test", component: TestTemplateComponent },
   { path: "thankyou", component: ThankComponent },
+  { path: "vueS", component: ProStudentComponent },
+  { path: "team", component: TeamComponent },
 ];
 
 @NgModule({

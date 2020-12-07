@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class HttpService {
   constructor(private http: HttpClient) {}
-  ROOT_URL = "http://35.180.138.141:3333";
+  ROOT_URL = "http://localhost:3000";
 
   getTimes() {
     return this.http.get(this.ROOT_URL + "/app/useres/collectTimes");
@@ -92,10 +92,19 @@ export class HttpService {
   companyData(obj) {
     return this.http.post(this.ROOT_URL + "/app/useres/companyData", obj);
   }
+  studentData(obj) {
+    return this.http.post(this.ROOT_URL + "/app/useres/studentData", obj);
+  }
   yourstudents(obj) {
     return this.http.post(this.ROOT_URL + "/app/useres/yourstudents", obj);
   }
   getCompany(obj) {
     return this.http.post(this.ROOT_URL + "/app/useres/getcompanybyName", obj);
+  }
+  loginAdmin(obj) {
+    return this.http.post(this.ROOT_URL + "/app/useres/Admin", obj);
+  }
+  alpha(obj) {
+    return this.http.post(this.ROOT_URL + "/app/useres/alpha", obj);
   }
 }

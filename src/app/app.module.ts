@@ -28,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TestTemplateComponent } from './test-template/test-template.component';
 import { ThankComponent } from './thank/thank.component';
 import { TeamComponent } from './team/team.component';
+import { ProStudentComponent } from './pro-student/pro-student.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { TeamComponent } from './team/team.component';
     TestTemplateComponent,
     ThankComponent,
     TeamComponent,
+    ProStudentComponent,
   ],
   imports: [
     BrowserModule,

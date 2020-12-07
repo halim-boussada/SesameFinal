@@ -8,11 +8,14 @@ import { HttpService } from "../http.service";
 })
 export class AdminSideComponent implements OnInit {
   constructor(private _http: HttpService) {}
+  del: any = false;
   times: any;
   select: any;
   rooms: any;
   number: number;
   room: string;
+  admin: any = false;
+  logi: any = true;
   ngOnInit(): void {
     this._http.getTimes().subscribe((data) => {
       this.times = data;
@@ -33,6 +36,15 @@ export class AdminSideComponent implements OnInit {
       alert("succes");
     });
   }
+  delete(alpha) {
+    var obj = { alpha };
+    this._http.alpha(obj).subscribe((data) => {
+      alert(data);
+    });
+  }
+  go() {
+    this.del = true;
+  }
   addUrl(numero) {
     this.room = prompt("Type here");
     var id = parseInt(numero);
@@ -41,6 +53,17 @@ export class AdminSideComponent implements OnInit {
     this._http.postRoom(objec).subscribe((data) => {
       console.log("changed");
       this.ngOnInit();
+    });
+  }
+  login(user, password) {
+    var obj = { user, password };
+    this._http.loginAdmin(obj).subscribe((data) => {
+      if (data) {
+        this.logi = false;
+        this.admin = true;
+      } else {
+        alert("wrong password");
+      }
     });
   }
 }

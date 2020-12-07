@@ -1,54 +1,79 @@
-<form id="time">
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select #date class="form-control" id="exampleFormControlSelect1">
-      <option *ngFor=" let element of select">{{ this.element?.time }}</option>
-    </select>
+<div class="login-page" *ngIf="logi">
+  <div class="form">
+    <form>
+      <input type="text" placeholder="&#xf007;  username" name="admin" #admin />
+      <input
+        type="password"
+        placeholder="&#xf023;  password"
+        #password
+        name="password"
+      />
+      <button (click)="login(admin.value , password.value)">LOGIN</button>
+      <p class="message"></p>
+    </form>
   </div>
-  <button
-    type="submit"
-    class="btn btn-primary"
-    (click)="submitTime(date.value)"
-  >
-    Submit
-  </button>
-  <ul class="list-group" style="margin-top: 10%;">
-    <li class="list-group-item" *ngFor=" let element of times">
-      {{ this.element?.time }}
-    </li>
-  </ul>
-
-  <div>
-    Ajouter Lien pour les Room reservé
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Room ID</th>
-          <th scope="col">Company name</th>
-          <th scope="col">time booked</th>
-          <th scope="col">room url</th>
-          <th scope="col">add</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let element of rooms">
-          <th scope="row">
-            {{ this.element?.id }}
-          </th>
-          <td>{{ this.element?.companyBooked }}</td>
-          <td>{{ this.element?.time }}</td>
-          <td>{{ this.element?.roomUrl }}</td>
-          <td>
-            <button
-              type="submit"
-              class="btn btn-primary"
-              (click)="addUrl(this.element.id)"
-            >
-              ADD URL
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+</div>
+<div *ngIf="admin">
+  <form id="time">
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Example select</label>
+      <select #date class="form-control" id="exampleFormControlSelect1">
+        <option *ngFor=" let element of select"
+          >{{ this.element?.time }}</option
+        >
+      </select>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="submitTime(date.value)"
+    >
+      Submit
+    </button>
+    <ul class="list-group" style="margin-top: 10%;">
+      <li class="list-group-item" *ngFor=" let element of times">
+        {{ this.element?.time }}
+      </li>
+    </ul>
+    <div>
+      Ajouter Lien pour les Room reservé
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Room ID</th>
+            <th scope="col">Company name</th>
+            <th scope="col">time booked</th>
+            <th scope="col">room url</th>
+            <th scope="col">add</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of rooms">
+            <th scope="row">
+              {{ this.element?.id }}
+            </th>
+            <td>{{ this.element?.companyBooked }}</td>
+            <td>{{ this.element?.time }}</td>
+            <td>{{ this.element?.roomUrl }}</td>
+            <td>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                (click)="addUrl(this.element.id)"
+              >
+                ADD URL
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button (click)="go()"></button>
+  </form>
+  <div *ngIf="del">
+    <input type="password" #f />
+    <button type="submit" class="btn btn-primary" (click)="delete(f.value)">
+      delete
+    </button>
   </div>
-</form>
+</div>

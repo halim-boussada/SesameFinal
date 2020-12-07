@@ -58,13 +58,17 @@ roomUrl varchar(200),
 resume varchar(5000)
 );
 
-
-
 CREATE TABLE times (
     id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     companyBooked int(4)  DEFAULT 5 ,
     time varchar(20) 
 ); 
+CREATE TABLE admin(
+ id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ user varchar(50) , 
+ password varchar(50) ,
+ planb varchar(50) 
+);
 
 CREATE TABLE bookingTimes(
  id INT(4) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -81,3 +85,4 @@ INSERT INTO bookingTimes (time) values ("15:00 => 16:00");
 INSERT INTO bookingTimes (time) values ("16:00 => 17:00");
 INSERT INTO bookingTimes (time) values ("17:00 => 18:00");
 INSERT INTO bookingTimes (time) values ("18:00 => 19:00");
+INSERT INTO admin (user ,password , planb ) values ("admin" , "20028952" , "20028952planb");

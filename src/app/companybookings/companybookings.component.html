@@ -111,7 +111,7 @@
                 <tr *ngFor="let elemet of test">
                   <th scope="col">{{this.elemet.time}}</th>
                   <th *ngFor="let el of this.elemet.students">
-                    <a href="{{this.el.roomUrl}}">
+                    <a (click)="vue(this.el.studentname)">
                       <span>{{this.el.studentname}}</span></a
                     >
                     <a href="{{this.el.studentcv}}">

@@ -70,7 +70,10 @@ export class CompanybookingsComponent implements OnInit {
       });
     });
   }
-
+  vue(e) {
+    localStorage.setItem("vueS", e);
+    this.router.navigateByUrl("/vueS");
+  }
   viewbookings() {
     this.router.navigateByUrl("/mybookings");
   }
